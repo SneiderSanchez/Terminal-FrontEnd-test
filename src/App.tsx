@@ -5,20 +5,35 @@ import { useDarkMode } from './hooks/useDarkMode';
 import { lightTheme, darkTheme } from './theme';
 import { ToggleTheme } from './components/ToggleTheme';
 import { MainContent } from './layout';
+import SearchBar from './components/SearchBar';
 import { HeadingTitle, LoadingContainer } from './layout/MainContent';
+import { useMemo, useState } from 'react';
+import { transformPlayerArrayData } from './utils';
+import { SearchBarFormElements } from './types';
 
 function App() {
   const { theme, toggleTheme } = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
+  const [search, setSearch] = useState('');
   const { data, error, loading } = useFakeQuery('SelectCatPlayers', {
-    variables: { search: null },
+    variables: { search: search },
+    forceError: false,
   });
+
+  const formattedPlayers = useMemo(() => transformPlayerArrayData(data), [data]);
+
+  const handleOnSubmit = (e: React.FormEvent<SearchBarFormElements>) => {
+    e.preventDefault();
+    const { searchInput } = e.currentTarget.elements;
+    setSearch(searchInput.value);
+  };
 
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <MainContent>
         <HeadingTitle>Recent Activity</HeadingTitle>
+        <SearchBar onSubmit={handleOnSubmit} placeHolder="Search By Name" name="searchBar" />
         {loading && !error && (
           <LoadingContainer>
             <h1>Loading...</h1>
