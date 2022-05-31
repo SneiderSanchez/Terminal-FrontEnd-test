@@ -1,2 +1,3 @@
 import { device } from './breakpoints';
-export { device };
+import { transformPlayerArrayData } from './dataManipulation';
+export { device, transformPlayerArrayData };
