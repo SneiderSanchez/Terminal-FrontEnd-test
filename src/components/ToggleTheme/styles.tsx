@@ -20,6 +20,7 @@ export const ToggleButton = styled.button<ToggleButtonProps>`
   width: 8rem;
   height: 4rem;
   font-size: 2em;
+  background: ${({ theme }) => theme.lightBackground};
   p {
     margin: 0;
     height: auto;

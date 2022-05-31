@@ -1,4 +1,3 @@
-import React from 'react';
 import { ToggleWrapper, ToggleButton } from './styles';
 
 type ToggleTypes = {

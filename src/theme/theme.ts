@@ -4,7 +4,7 @@ export const lightTheme = {
   border: '#C2C2C2',
   background: '#F5F5F5',
   lightColor: '#3A434D',
-  lightBackground: '255, 255, 255',
+  lightBackground: '#FFFFFF',
   placeHolder: '#3A434D',
 };
 export type ThemeType = typeof lightTheme;
@@ -15,6 +15,6 @@ export const darkTheme = {
   border: '#6B8096',
   background: '#545252',
   placeHolder: '',
-  lightColor: '#a1afbf',
-  lightBackground: '0, 0, 0',
+  lightColor: '#DFE0E2',
+  lightBackground: '#AAAAAA',
 };
