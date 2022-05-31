@@ -1,9 +1,11 @@
 import { useFakeQuery } from './data/fakeFetchClient';
+import { GlobalStyles } from './theme/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from './hooks/useDarkMode';
 import { lightTheme, darkTheme } from './theme';
 import { ToggleTheme } from './components/ToggleTheme';
-import { GlobalStyles } from './theme/GlobalStyles';
+import { MainContent } from './layout';
+import { HeadingTitle, LoadingContainer } from './layout/MainContent';
 
 function App() {
   const { theme, toggleTheme } = useDarkMode();
@@ -11,12 +13,21 @@ function App() {
   const { data, error, loading } = useFakeQuery('SelectCatPlayers', {
     variables: { search: null },
   });
+
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
-
-      <h1>Players Latest Activities</h1>
-      <span>{loading ? 'Loading...' : 'Data is loaded'}</span>
+      <MainContent>
+        <HeadingTitle>Recent Activity</HeadingTitle>
+        {loading && !error && (
+          <LoadingContainer>
+            <h1>Loading...</h1>
+          </LoadingContainer>
+        )}
+        {data && !loading && <></>}
+        {/* TODO: Create a fallback error component and useType of errors? */}
+        {error && <h1>Error during the call 😭</h1>}
+      </MainContent>
       <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
     </ThemeProvider>
   );
