@@ -1,57 +1,78 @@
-# Setup
+<h1 id="title" align="center">Welcome to terminal-front-end-test 👋</h1>
 
-- Install current packages
-- Feel free to install and use any library you would like
+Front End test created with ❤️ by Sneider Sanchez, You can see it running <a href="https://terminal-front-end-test-smolder60.vercel.app/" target="_blank">here!</a>
 
-# Submission
+### 🔖 Table Of Contents
 
-When you are done, create a zip file from the repo and name it `{user-github-handle}/{yyyy-MM-DD}` and send it back to us.
+- 🤔 [How To Use](#how-to-use)
+- 🚀 [Technologies](#technologies)
+- 🧪 [Tests](#tests)
+- 😓 [What I'm Missing](#missing)
+- 👤 [Author](#author)
 
-# Test description
+<h2 id="how-to-use">🤔 How To Use</h2>
 
-Display sorted player information as given in the design.
-
-## Design
-
-https://www.figma.com/file/A3G8XiR3y3U2kApjY8MLXI/Cat-Game?node-id=0%3A1
-
-If figma didn't work for you, you can use this static mock instead.
-![Static Desktop View Mock](./desktop-view-mock.png?raw=true 'Static Desktop View Mock')
-![Static Mobile View Mock](./mobile-view-mock.png?raw=true 'Static Mobile View Mock')
-
-## Detail of what needs to be done
-
-- The UI should be pixel perfect.
-
-- The player list should be sorted by their last played date. When determining players last played date, the game's `accurate date` should be preferred over games's `date` when available.
-  (NOTE: For the player's games our (imaginary) backend can find `accurate date`, which is a more accurate date than the game's `date` field. So when ever `accurate date` is available for a game, use that over using game's `date` field.)
-
-- When user types in the search input, only apply the search after user has stopped typing for 400 milliseconds. The search should cause a new query request rather than filtering the previous players result locally. (Note: in this test, you can assume that passing the search input to useFakeQuery will make a new request)
-
-- Display the win rate badge with different background color based on their win ratio classification.
-
-  - red: === 0
-  - yellow: > 0 && < 0.25
-  - green: >= 0.25 && < 0.75
-  - blue: >= 0.75
-
-- The Card and the Badge should be components that can seamlessly be used by other features unrelated to cat games
-
-- When data is being fetched, display only a text, instead of the cat list, under the search bar, in the center of the page that says "Loading..."
-
-- Create automated tests that increase confidence for this feature. (Note: if there are tests or types of tests that you cannot write/create due to time constrain, please describe their type and what they test in code comments. Still, we would like to see some tests written.)
-
-## Additional Note:
-
-Use `useFakeQuery` to fetch the query.
-(Note: this is fake query requester build for the purpose of this test. You don't need to understand its implementation detail. But use it as you would use, for example, apollo client useQuery for both when you are developing the feature and when writing tests. You could also utilize the type of the data it returns.)
-
-Example of usage:
-
-```typescript
-// Fetching list with no search
-useFakeQuery('SelectPlayers', { variables: { search: null } });
-
-//Fetching list with search
-useFakeQuery('SelectPlayers', { variables: { search: 'some-search input 123' } });
 ```
+> npm start
+```
+
+Then the app will be running at http://localhost:3000
+
+<h2 id="technologies">🚀 Technologies</h2>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/640px-React.svg.png" alt="alt text" width="30"/> [React](https://reactjs.org/): To build the html and user interactions.
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/512px-Typescript_logo_2020.svg.png" alt="alt text" width="30"/> [Typescript](https://www.typescriptlang.org/): It's JavaScript with syntax for types.
+<img src="https://seeklogo.com/images/C/create-react-app-logo-BA592B4FB4-seeklogo.com.png" alt="alt text" width="30"/> [Create React App](https://github.com/facebook/create-react-app): To initial setup of the project.
+<img src="https://cdn.worldvectorlogo.com/logos/styled-components-1.svg" alt="alt text" width="30"/> [styled-components](https://www.styled-components.com/): It's like CSS with drugs. it combines the awesomeness of css with React.
+<img src="https://miro.medium.com/max/318/1*7jRD5QhgARucFKvRHFxpOg.png" alt="alt text" width="30"/> [styled-icons](https://styled-icons.dev//): To handle icons.
+<img src="https://avatars.githubusercontent.com/u/4129662?s=280&v=4" alt="alt text" width="30"/> [moment.js](https://momentjs.com/): To Better handling of dates (x time ago on Candidates Info).
+<img src="https://opensource.saucelabs.com/images/logos/testcafe.svg" alt="alt text" width="30"/> [TestCafe](https://testcafe.io/) : Used for E2E testing
+<img src="https://testing-library.com/img/octopus-128x128.png" alt="alt text" width="30"/> [react testing Library](https://testing-library.com/docs/react-testing-library/intro/): Used for integration tests of the app.
+<img src="https://symbols.getvecta.com/stencil_85/20_jest-icon.aff64ab210.png" alt="alt text" width="30"/> [JEST](https://jestjs.io/): Used as testing Framework
+<img src="https://avatars.githubusercontent.com/u/14985020?s=280&v=4" alt="alt text" width="30"/> [Vercel](https://vercel.com/): Used to deploy the app
+
+<h2 id="tests"> 🧪 Tests</h2>
+
+- [TestCafe](https://testcafe.io/) : Used for E2E testing
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/): Used for integration and unit tests of the app.
+- [JEST](https://jestjs.io/): Used as testing Framework
+
+#### Integration/Unit tests
+
+```
+> npm test:integration
+```
+
+Then you will see testing-library/jest running for integration & unit tests
+
+#### E2E tests
+
+```
+> npm test:e2e
+```
+
+Then you will see TestCafe with chrome running for E2E tests
+
+<h2 id="missing"> 😓 What I'm Missing</h2>
+Due to time limitations, I think I can improve on:
+
+- Use a internationalization framework
+- Use Mocks for test, not real data
+- More Test
+- Add Animations
+- Routing
+- Notifications Toast in app
+- Add more components to make the most of toggle theme
+- Create an API using Express and nodeJS
+- Use Graphql
+
+<h2 id="author">👤 Author</h2>
+
+### Sneider Sanchez
+
+<img width="60" src="https://avatars.githubusercontent.com/u/17282848?s=460&u=459b2d6d994275f365a2e21144ddd48b164aee81&v=4"/>
+
+- Github: [@SneiderSanchez](https://github.com/SneiderSanchez)
+- LinkedIn: [@SneiderSanchez](https://www.linkedin.com/in/sneidersanchez)
+
+[Back To The Top](#title)
