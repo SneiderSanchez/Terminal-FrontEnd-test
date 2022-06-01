@@ -15,6 +15,6 @@ export const darkTheme = {
   border: '#6B8096',
   background: '#545252',
   placeHolder: '',
-  lightColor: '#DFE0E2',
+  lightColor: '#48494a',
   lightBackground: '#AAAAAA',
 };
