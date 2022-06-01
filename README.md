@@ -49,7 +49,7 @@ Then the app will be running at http://localhost:3000
 #### Integration/Unit tests
 
 ```javascript
-> npm test:integration
+> npm run test:integration
 ```
 
 Then you will see testing-library/jest running for integration & unit tests
@@ -60,7 +60,7 @@ Then you will see testing-library/jest running for integration & unit tests
 // First we need to run the project
 > npm start
 //Then run the test command
-> npm test:e2e
+> npm run test:e2e
 ```
 
 Then you will see TestCafe with chrome running for E2E tests
