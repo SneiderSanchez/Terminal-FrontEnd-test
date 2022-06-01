@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { CardPropsType } from '.';
 
-export const CardContainer = styled.div<CardPropsType>`
+export const CardContainer = styled.div`
   display: flex;
   background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};

@@ -1,10 +1,10 @@
-import React from 'react';
 import { ThemeProvider, withTheme } from 'styled-components';
 import { darkTheme, ThemeType } from '../../theme/theme';
 import { StyledBadge } from './styles';
 
-export type BadgePropsType = {
+type BadgePropsType = {
   value: number;
+  // Needed by styled-components - withTheme
   theme: ThemeType;
   className?: string;
 };
@@ -27,7 +27,8 @@ const getBadgeClassNameColor = (value: number) => {
       return null;
   }
 };
-const Badge = ({ className = '', value, theme }: BadgePropsType) => {
+
+export const Badge = withTheme(({ className = '', value }: BadgePropsType) => {
   const badgeClassname = getBadgeClassNameColor(value);
 
   return (
@@ -35,6 +36,4 @@ const Badge = ({ className = '', value, theme }: BadgePropsType) => {
       <StyledBadge className={`${className} ${badgeClassname}`}>{value}</StyledBadge>
     </ThemeProvider>
   );
-};
-
-export default withTheme(Badge);
+});

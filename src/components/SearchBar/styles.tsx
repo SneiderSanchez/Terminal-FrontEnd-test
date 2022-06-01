@@ -1,15 +1,19 @@
 import styled from 'styled-components';
 import { Search } from '@styled-icons/ionicons-outline';
+import { device } from 'utils';
 
 export const Form = styled.form`
   display: flex;
-  margin-bottom: 48px;
-  margin-top: 48px;
+  margin: 48px 0;
   color: ${({ theme }) => theme.lightColor};
   background: ${({ theme }) => theme.lightBackground};
   border: 1px solid ${({ theme }) => theme.border};
   align-items: center;
   width: 100%;
+  @media only screen and ${device.sm} {
+    margin: 24px 0;
+    width: 99.5%;
+  }
 `;
 
 export const SearchInput = styled.input`

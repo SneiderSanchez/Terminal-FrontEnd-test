@@ -1,7 +1,7 @@
 import { PlayerFormatted } from '../../types';
 import { Avatar, PlayerBadge, PlayerCardContainer, PlayerInfo } from './styles';
 
-const PlayerCard = ({
+export const PlayerCard = ({
   lastActivityMoment,
   winRatio,
   uniqueOpponents,
@@ -23,5 +23,3 @@ const PlayerCard = ({
     </PlayerCardContainer>
   );
 };
-
-export default PlayerCard;

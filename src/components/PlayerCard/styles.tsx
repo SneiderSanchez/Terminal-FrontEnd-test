@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { PlayerFormatted } from '../../types';
 import { device } from '../../utils';
-import Badge from '../Badge';
-import Card from '../Card';
+import { Badge } from '../Badge';
+import { Card } from '../Card';
 
 type AvatarProp = Pick<PlayerFormatted, 'flipImageOnMobile'>;
 
@@ -31,9 +31,11 @@ export const PlayerInfo = styled.div`
     line-height: 23px;
     margin-left: 1px;
   }
-  & .lastActivity {
-    margin-top: 8px;
-    margin-bottom: 8px;
+  & h5 + span {
+    margin: 8px 0;
+  }
+  & span:nth-child(3) {
+    margin-left: 1px;
   }
 `;
 
@@ -46,7 +48,7 @@ export const PlayerBadge = styled(Badge)`
   width: 48px;
   @media only screen and ${device.sm} {
     position: absolute;
-    left: 25%;
+    left: 25.5%;
   }
 `;
 

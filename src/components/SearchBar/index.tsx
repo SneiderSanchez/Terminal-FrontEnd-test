@@ -4,13 +4,13 @@ import { lightTheme } from '../../theme';
 import { SearchBarFormElements } from '../../types';
 import { Form, SearchButton, SearchIcon, SearchInput } from './styles';
 
-export type SearchBarProps = {
+type SearchBarProps = {
   onSubmit: (event: React.FormEvent<SearchBarFormElements>) => void;
   placeHolder: string;
   name?: string;
 };
 
-const SearchBar = ({ onSubmit, placeHolder, name = '' }: SearchBarProps) => {
+export const SearchBar = ({ onSubmit, placeHolder, name = '' }: SearchBarProps) => {
   const [inputValue, setInputValue] = useState('');
   const formRef = useRef(null);
   // Use this ref to verify that the dispatchEvent is not trigger on the first render
@@ -46,12 +46,10 @@ const SearchBar = ({ onSubmit, placeHolder, name = '' }: SearchBarProps) => {
         id="searchInput"
         name="searchInput"
       />
-
+      {/* I Preffer to wrap this on a button for the future if we need to implement the onClick search for the icon  */}
       <SearchButton>
         <SearchIcon theme={lightTheme} />
       </SearchButton>
     </Form>
   );
 };
-
-export default SearchBar;

@@ -4,11 +4,15 @@ import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from './hooks/useDarkMode';
 import { lightTheme, darkTheme } from './theme';
 import { ToggleTheme } from './components/ToggleTheme';
-import { MainContent } from './layout';
-import PlayerCard from './components/PlayerCard';
-import { PlayersCardContainer } from './layout/PlayersCardContainer';
-import SearchBar from './components/SearchBar';
-import { HeadingTitle, LoadingContainer } from './layout/MainContent';
+import { MainContent, PlayersCardContainer } from './layout';
+import {
+  ErrorHandler,
+  Header,
+  LoadingScreen,
+  NoResults,
+  PlayerCard,
+  SearchBar,
+} from './components';
 import { useMemo, useState } from 'react';
 import { transformPlayerArrayData } from './utils';
 import { SearchBarFormElements } from './types';
@@ -34,13 +38,9 @@ function App() {
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <MainContent>
-        <HeadingTitle>Recent Activity</HeadingTitle>
+        <Header />
         <SearchBar onSubmit={handleOnSubmit} placeHolder="Search By Name" name="searchBar" />
-        {loading && !error && (
-          <LoadingContainer>
-            <h1>Loading...</h1>
-          </LoadingContainer>
-        )}
+        {loading && !error && <LoadingScreen />}
         {data && !loading && (
           <>
             <PlayersCardContainer data-testid="playersCardContainer">
@@ -49,14 +49,12 @@ function App() {
                   <PlayerCard {...player} key={`${player.fullName}-${index}`} />
                 ))
               ) : (
-                /* TODO: better fallback for no criteria */
-                <h3>No players found with "{search}" criteria 😭</h3>
+                <NoResults message={`No players found with "${search}" criteria 😭`} />
               )}
             </PlayersCardContainer>
           </>
         )}
-        {/* TODO: Create a fallback error component and useType of errors? */}
-        {error && <h1>Error during the call 😭</h1>}
+        {error && <ErrorHandler errorObj={error} />}
       </MainContent>
       <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
     </ThemeProvider>
