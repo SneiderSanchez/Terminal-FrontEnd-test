@@ -5,6 +5,8 @@ import { useDarkMode } from './hooks/useDarkMode';
 import { lightTheme, darkTheme } from './theme';
 import { ToggleTheme } from './components/ToggleTheme';
 import { MainContent } from './layout';
+import PlayerCard from './components/PlayerCard';
+import { PlayersCardContainer } from './layout/PlayersCardContainer';
 import SearchBar from './components/SearchBar';
 import { HeadingTitle, LoadingContainer } from './layout/MainContent';
 import { useMemo, useState } from 'react';
@@ -39,7 +41,20 @@ function App() {
             <h1>Loading...</h1>
           </LoadingContainer>
         )}
-        {data && !loading && <></>}
+        {data && !loading && (
+          <>
+            <PlayersCardContainer data-testid="playersCardContainer">
+              {formattedPlayers.length ? (
+                formattedPlayers.map((player, index) => (
+                  <PlayerCard {...player} key={`${player.fullName}-${index}`} />
+                ))
+              ) : (
+                /* TODO: better fallback for no criteria */
+                <h3>No players found with "{search}" criteria 😭</h3>
+              )}
+            </PlayersCardContainer>
+          </>
+        )}
         {/* TODO: Create a fallback error component and useType of errors? */}
         {error && <h1>Error during the call 😭</h1>}
       </MainContent>

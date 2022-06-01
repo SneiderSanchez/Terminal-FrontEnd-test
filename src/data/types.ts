@@ -13,4 +13,6 @@ export interface Player {
   fullName: string;
   avatar?: string; // I may remove that
   games: PlayerGame[];
+  //I added this field to follow the flip image approach on the desgin form only Alivia Card
+  flipImageOnMobile?: boolean;
 }
