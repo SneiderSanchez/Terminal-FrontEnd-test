@@ -45,7 +45,7 @@ test('Should find players using the searchbar', async (t) => {
     .notOk();
 });
 
-test('Should render No data message when no palyers where found with that criteria', async (t) => {
+test('Should render No Results component when no palyers where found with that criteria', async (t) => {
   const inputSearchBar = Selector('input').withAttribute('placeholder', 'Search By Name');
   const searchCriteria = 'xr1sr4456';
   const loadingMessage = Selector('h1').withText('Loading...');
@@ -73,6 +73,7 @@ test('Should render No data message when no palyers where found with that criter
     .expect(Selector('h3').withText(`No players found with "${searchCriteria}" criteria 😭`).exists)
     .ok();
 });
+
 test('Should change theme when toggle button is clicked', async (t) => {
   const togleMessage = Selector('h5').withText(/Placing Toogle at the end just for demo purposes/i);
   const toggleButton = togleMessage.nextSibling();

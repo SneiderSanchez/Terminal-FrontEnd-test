@@ -72,9 +72,10 @@ const locationNames = [
   'Aramore',
 ];
 
+// Zephaniah Easton
 const player1: Player = {
   membershipDate: '2020-01-02',
-  fullName: playerNames[23], // Zephaniah Easton
+  fullName: playerNames[23],
   avatar: 'https://cutewallpaper.org/22/british-shorthair-wallpapers/90513132.jpg',
   games: [
     {
@@ -122,9 +123,10 @@ const player1: Player = {
   ],
 };
 
+// John Hogan
 const player2: Player = {
   membershipDate: '2020-01-10',
-  fullName: playerNames[41], // John Hogan
+  fullName: playerNames[27],
   avatar:
     'https://www.picgaga.com/uploads/wallpaper/cute-cat-mobile/white-cute-cat-wallpaper-free-hd-download1617287096.jpg',
   games: [
@@ -149,7 +151,7 @@ const player2: Player = {
         playerNames[35],
         playerNames[20],
       ],
-      winnerName: playerNames[41],
+      winnerName: playerNames[27],
     },
     {
       date: '2020-03-23',
